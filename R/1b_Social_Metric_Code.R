@@ -46,17 +46,27 @@ length(seasons)
 
 Sociality_list <- list()
 
+i <- 1
+
 for (i in 1:length(seasons)) {
   data1 <- seasons[[i]]
-  data1 <- data1 %>% select(Name, datetime, Season, X, Y, ActiveFungus) %>% 
-    group_by(Name, datetime) %>% summarise_all(~mean(.x, na.rm = F)) %>% 
+
+  data1 <- data1 %>% 
+    group_by(Name, datetime) %>% 
+    summarise(
+      Season = mean(Season, na.rm = F),
+      X = mean(X, na.rm = F),
+      Y = mean(Y, na.rm = F),
+      ActiveFungus = mean(ActiveFungus, na.rm = F)
+    ) %>% 
     arrange(datetime)
+  
   data1 <-  data.table::setDT(data1)
   group_times(
     DT = data1, 
     datetime = 'datetime')
   
-  disease <- data1 %>% select(Name, timegroup, ActiveFungus)
+  disease <- data1 %>% dplyr::select(Name, timegroup, ActiveFungus)
   
   #Determine if dragons sighted in the same survey are interacting (within 1.85m of one another)
   edgelist <- edge_dist(

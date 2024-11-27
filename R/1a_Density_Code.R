@@ -12,7 +12,7 @@ library(cowplot)
 theme_set(theme_cowplot())
 
 #Load Data and remove euthanized dragons
-FullDragons <- read.csv("Data/Dragon_Sight_Data2.csv", header = T)
+FullDragons <- read.csv("Data/Dragon_Sight_Data.csv", header = T)
 
 FullDragons %>% 
   group_by(Name) %>% 
