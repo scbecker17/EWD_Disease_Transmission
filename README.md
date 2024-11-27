@@ -8,7 +8,7 @@ Analysis is undertaken using the R-INLA package to account for spatial and tempo
 
 The code was initially written by Greg Albery and Sam Becker.
 
-## Script structure:
+## Scripts:
 
 - All the code can be found in the `R` folder.
   
