@@ -14,6 +14,8 @@ The code was initially written by Greg Albery and Sam Becker.
   
 - Initial raw data from obervational surveys (Dragon_Sight_Data.csv), and data ready for INLA analysis (INLA_Data.csv) can be found in the `Data` folder.
 
+- The Metadata.xlsx file contains information on what each column in each data file represents.
+
 - The scripts are numbered in order and contain the following:
 
 1a. Generate host spatial behavioural metric to model indirect transmission of fungal disease.
